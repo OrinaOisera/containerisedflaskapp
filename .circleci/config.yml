@@ -1,5 +1,5 @@
 --- 
-jobs:  
+jobs: 
   build: 
     docker: 
       - 
@@ -31,5 +31,3 @@ jobs:
           name: "run lint"
     working_directory: ~/containerisedflaskapp
 version: 2
-
-
