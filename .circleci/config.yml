@@ -1,4 +1,4 @@
-version: 2
+--- 
 jobs:  
   build: 
     working_directory: ~/containerisedflaskapp
@@ -30,7 +30,7 @@ jobs:
               . venv/bin/activate
               make lint
           name: "run lint"
-    
-
+    working_directory: ~/containerisedflaskapp
+version: 2
 
 
