@@ -1,32 +1,36 @@
-version: 2
-jobs:
-  build:
-    working_directory: ~/containerisedflaskapp
-    docker:
-      - image: circleci/python:3.6.4
-        
-      
-    steps:
+/home/ec2-user/environment/containerisedflaskapp
+
+jobs: 
+  build: 
+    docker: 
+      - 
+        image: "circleci/python:3.6.4"
+    steps: 
       - checkout
-      
-      - restore_cache:
+      - 
+        restore_cache: 
           key: 
-             - v1-dependencies-{{ checksum "requirements.txt" }}
-             - v1-dependencies-
-      - run:
-          name: install dependencies
+            - "v1-dependencies-{{ checksum \"requirements.txt\" }}"
+            - v1-dependencies-
+      - 
+        run: 
           command: |
-            python -m venv venv
-            . venv/bin/activate
-            make install
-      - save_cache:
-         paths:
+              python -m venv venv
+              . venv/bin/activate
+              make install
+          name: "install dependencies"
+      - 
+        save_cache: 
+          key: "v1-dependencies-{{ checksum \"requirements.txt\" }}"
+          paths: 
             - .venv
-         key: v1-dependencies-{{ checksum "requirements.txt" }}
-      - run:
-          name: run lint
+      - 
+        run: 
           command: |
-            . venv/bin/activate
-            make lint
-      
+              . venv/bin/activate
+              make lint
+          name: "run lint"
+    working_directory: ~/containerisedflaskapp
+version: 2
+
 
