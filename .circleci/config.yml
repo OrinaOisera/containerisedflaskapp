@@ -1,7 +1,7 @@
-/home/ec2-user/environment/containerisedflaskapp
-
-jobs: 
+version: 2
+jobs:  
   build: 
+    working_directory: ~/containerisedflaskapp
     docker: 
       - 
         image: "circleci/python:3.6.4"
@@ -30,7 +30,7 @@ jobs:
               . venv/bin/activate
               make lint
           name: "run lint"
-    working_directory: ~/containerisedflaskapp
-version: 2
+    
+
 
 
